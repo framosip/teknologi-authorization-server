@@ -24,11 +24,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -61,17 +57,11 @@
 			</activation>
 			<properties>
 				<spring.profiles.active>local</spring.profiles.active>
-				<blockhound.version>1.0.6.RELEASE</blockhound.version>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-devtools</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>io.projectreactor.tools</groupId>
-					<artifactId>blockhound</artifactId>
-					<version>${blockhound.version}</version>
 				</dependency>
 				<dependency>
 					<groupId>org.projectlombok</groupId>

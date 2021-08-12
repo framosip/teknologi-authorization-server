@@ -13,11 +13,11 @@ public class JWTConfig {
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        log.info("[Configuration] ===== BCryptPasswordEncoder configured =====");
+        log.info("[Configuration] ===== BCryptPasswordEncoder bean configured =====");
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+    /*@Bean
     public JwtAccessTokenConverter accessTokenConverter(){
         log.info("[Configuration] ===== JwtAccessTokenConverter configured =====");
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
@@ -29,5 +29,5 @@ public class JWTConfig {
     public JwtTokenStore tokenStore() {
         log.info("[Configuration] ===== JwtTokenStore configured =====");
         return new JwtTokenStore(this.accessTokenConverter());
-    }
+    }*/
 }
