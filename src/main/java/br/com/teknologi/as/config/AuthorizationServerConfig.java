@@ -24,13 +24,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final JwtTokenStore tokenStore;*/
     private final AuthenticationManager authenticationManager;
 
-/*    @Override
+    @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("permitAll()")
+        security/*.tokenKeyAccess("permitAll()")*/
                 .checkTokenAccess("isAuthenticated()");
 
         log.info("[Configuration] ===== AuthorizationServerSecurityConfigurer configured =====");
-    }*/
+    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
