@@ -1,6 +1,7 @@
 package br.com.teknologi.as.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,20 +12,25 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Slf4j
 public class JWTConfig {
 
+    @Value("${security.key}")
+    private String signingKey;
+
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         log.info("[Configuration] ===== BCryptPasswordEncoder bean configured =====");
         return new BCryptPasswordEncoder();
     }
 
-    /*@Bean
+    @Bean
     public JwtAccessTokenConverter accessTokenConverter(){
         log.info("[Configuration] ===== JwtAccessTokenConverter configured =====");
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
+        tokenConverter.setSigningKey(this.signingKey);
 
         return tokenConverter;
     }
 
+    /*
     @Bean
     public JwtTokenStore tokenStore() {
         log.info("[Configuration] ===== JwtTokenStore configured =====");

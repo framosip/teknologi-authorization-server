@@ -11,7 +11,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
@@ -20,8 +19,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private final BCryptPasswordEncoder passwordEncoder;
-    /*private final JwtAccessTokenConverter accessTokenConverter;
-    private final JwtTokenStore tokenStore;*/
+    private final JwtAccessTokenConverter accessTokenConverter;
+    /*private final JwtTokenStore tokenStore;*/
     private final AuthenticationManager authenticationManager;
 
     @Override
@@ -47,9 +46,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(this.authenticationManager);
-/*                .tokenStore(this.tokenStore)
-                .accessTokenConverter(this.accessTokenConverter);*/
+        endpoints.authenticationManager(this.authenticationManager)
+/*                .tokenStore(this.tokenStore)*/
+                .accessTokenConverter(this.accessTokenConverter);
 
         log.info("[Configuration] ===== Endpoints authenticationManager configured =====");
     }

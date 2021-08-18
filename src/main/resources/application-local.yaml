@@ -1,0 +1,4 @@
+server:
+  port: 3339
+security:
+  key: @teknologi.signing.key@
