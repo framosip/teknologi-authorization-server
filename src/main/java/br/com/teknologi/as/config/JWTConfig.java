@@ -6,13 +6,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 @Slf4j
 public class JWTConfig {
 
-    @Value("${security.key}")
+    @Value("security.key")
     private String signingKey;
 
     @Bean
@@ -23,17 +22,12 @@ public class JWTConfig {
 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter(){
+
         log.info("[Configuration] ===== JwtAccessTokenConverter configured =====");
+
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-        tokenConverter.setSigningKey(this.signingKey);
+        tokenConverter.setSigningKey(signingKey);
 
         return tokenConverter;
     }
-
-    /*
-    @Bean
-    public JwtTokenStore tokenStore() {
-        log.info("[Configuration] ===== JwtTokenStore configured =====");
-        return new JwtTokenStore(this.accessTokenConverter());
-    }*/
 }
