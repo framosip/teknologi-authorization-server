@@ -2,15 +2,14 @@ package br.com.teknologi.as.repository;
 
 import br.com.teknologi.as.model.User;
 import lombok.NonNull;
-import org.springframework.stereotype.Component;
+import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-@Component
-public class UserRepository {
+@EnableScan
+public interface UserRepository extends CrudRepository<User, String> {
 
-    public Optional<User> findByEmail(@NonNull String email) {
-        return Optional.of(new User("fulano@gmail.com", "$2a$12$MEakEDpGr8qkmTDLQaL0H.fsm2w/h0MrFuwHfzczuQFaMCtRcXCDi"));
-    }
+    Optional<User> findByEmail(@NonNull String email);
 
 }

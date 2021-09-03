@@ -1,4 +1,13 @@
 server:
   port: 80
+
 security:
-  key: ${teknologi.as.signing.key}
+  key: ${TEKNOLOGI_AS_SIGNING_KEY}
+
+aws:
+  endpoint: ${TEKNOLOGI_AS_AWS_ENDPOINT}
+  region: ${TEKNOLOGI_AS_AWS_REGION}
+  access-key: ${TEKNOLOGI_AS_AWS_ACCESS_KEY}
+  secret-key: ${TEKNOLOGI_AS_AWS_SECRET_KEY}
+  dynamodb:
+    prefix: prod_

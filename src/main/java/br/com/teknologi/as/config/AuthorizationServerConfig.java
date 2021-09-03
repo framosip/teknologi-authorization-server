@@ -33,7 +33,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenValiditySeconds(60 * 60)
                 .refreshTokenValiditySeconds(60 * 60 * 2);
 
-
         log.info("[Configuration] ===== Clients in memory configured =====");
 
     }

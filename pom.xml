@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<aws-java-sdk-dynamodb.version>1.11.831</aws-java-sdk-dynamodb.version>
+		<spring-data-dynamodb.version>5.2.5</spring-data-dynamodb.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,11 +31,27 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.github.boostchicken</groupId>
+			<artifactId>spring-data-dynamodb</artifactId>
+			<version>${spring-data-dynamodb.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

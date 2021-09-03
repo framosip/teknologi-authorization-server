@@ -1,4 +1,13 @@
 server:
   port: 3339
+
 security:
   key: fgkdDDleG302Fdl210194kfl34fVdlça1E3
+
+aws:
+  endpoint: http://localhost:4566
+  region: us-east-1
+  access-key: local
+  secret-key: local
+  dynamodb:
+    prefix: dev_
