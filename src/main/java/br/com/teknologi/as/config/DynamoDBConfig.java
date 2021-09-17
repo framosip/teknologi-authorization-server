@@ -42,13 +42,13 @@ public class DynamoDBConfig {
 
     @Bean
     public AWSCredentials amazonAWSCredentials() {
-        log.info("[Configuration] ===== AWSCredentials bean configured =====");
+        log.debug("[Configuration] ===== AWSCredentials bean configured =====");
         return new BasicAWSCredentials(awsAccessKey, awsSecretKey);
     }
 
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
-        log.info("[Configuration] ===== AmazonDynamoDB bean configured =====");
+        log.debug("[Configuration] ===== AmazonDynamoDB bean configured =====");
         return AmazonDynamoDBClientBuilder
                 .standard()
                 .withCredentials(amazonAWSCredentialsProvider())
@@ -58,14 +58,14 @@ public class DynamoDBConfig {
 
     @Bean
     public DynamoDBMapperConfig.TableNameOverride tableNameOverride() {
-        log.info("[Configuration] ===== DynamoDBMapperConfig.TableNameOverride bean configured =====");
+        log.debug("[Configuration] ===== DynamoDBMapperConfig.TableNameOverride bean configured =====");
         return DynamoDBMapperConfig.TableNameOverride.withTableNamePrefix(prefix);
     }
 
     @Bean
     @Primary
     public DynamoDBMapperConfig dynamoDBMapperConfig() {
-        log.info("[Configuration] ===== DynamoDBMapperConfig bean configured =====");
+        log.debug("[Configuration] ===== DynamoDBMapperConfig bean configured =====");
         return DynamoDBMapperConfig.builder()
                 .withTableNameOverride(tableNameOverride())
                 .build();
@@ -74,7 +74,7 @@ public class DynamoDBConfig {
     @Bean
     @Primary
     public DynamoDBMapper dynamoDBMapper() {
-        log.info("[Configuration] ===== DynamoDBMapper bean configured =====");
+        log.debug("[Configuration] ===== DynamoDBMapper bean configured =====");
         return new DynamoDBMapper(amazonDynamoDB(), dynamoDBMapperConfig());
     }
 

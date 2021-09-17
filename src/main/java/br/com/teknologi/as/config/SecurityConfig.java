@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
-        log.info("[Configuration] ===== AuthenticationManager bean configured =====");
+        log.debug("[Configuration] ===== AuthenticationManager bean configured =====");
         return super.authenticationManager();
     }
 

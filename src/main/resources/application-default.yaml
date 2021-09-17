@@ -11,3 +11,9 @@ aws:
   secret-key: local
   dynamodb:
     prefix: dev_
+
+logging:
+  level:
+    br:
+      com:
+        teknologi: DEBUG

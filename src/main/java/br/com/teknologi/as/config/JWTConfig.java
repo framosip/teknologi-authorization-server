@@ -16,14 +16,14 @@ public class JWTConfig {
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        log.info("[Configuration] ===== BCryptPasswordEncoder bean configured =====");
+        log.debug("[Configuration] ===== BCryptPasswordEncoder bean configured =====");
         return new BCryptPasswordEncoder();
     }
 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter(){
 
-        log.info("[Configuration] ===== JwtAccessTokenConverter configured =====");
+        log.debug("[Configuration] ===== JwtAccessTokenConverter configured =====");
 
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
         tokenConverter.setSigningKey(signingKey);
