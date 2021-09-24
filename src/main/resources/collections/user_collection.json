@@ -2,13 +2,13 @@
   "TableName": "TeknologiASUser",
   "AttributeDefinitions": [
     {
-      "AttributeName": "id",
+      "AttributeName": "email",
       "AttributeType": "S"
     }
   ],
   "KeySchema": [
     {
-      "AttributeName": "id",
+      "AttributeName": "email",
       "KeyType": "HASH"
     }
   ],

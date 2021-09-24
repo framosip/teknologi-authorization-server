@@ -10,4 +10,4 @@ aws:
   access-key: ${TEKNOLOGI_AS_AWS_ACCESS_KEY}
   secret-key: ${TEKNOLOGI_AS_AWS_SECRET_KEY}
   dynamodb:
-    prefix: prod_
+    prefix:
